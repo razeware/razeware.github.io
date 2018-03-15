@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<article>
+
+  <header>
+    <h1>{{ page.title | escape }}</h1>
+    <p>
+      {% if page.author %}
+        • <span>{{ page.author }}</span>
+      {% endif %}
+    </p>
+  </header>
+
+  <div>
+    {{ content }}
+  </div>
+</article>
