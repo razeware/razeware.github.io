@@ -2,6 +2,8 @@
 
 ## Contributing
 
+Please also refer to the Razeware [blog policies](https://razeware.atlassian.net/wiki/spaces/RAZEWARE/pages/194609156/Developer+Blog+Policies).
+
 All posts are to be added to the `_posts` directory using the following filename format:
 
 ```
