@@ -1,3 +1,4 @@
 #!/bin/bash
 
+docker build -t rwblog .
 docker run -p 4000:4000 -v`pwd`:/app -it --rm rwblog jekyll serve --host=0.0.0.0
