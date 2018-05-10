@@ -1,0 +1,109 @@
+/* ==========================================================================
+   Home
+   ========================================================================== */
+
+main.c-home-carousel{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+}
+
+.c-home-carousel-left{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.c-home-carousel-left-text-wrapper{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.c-home-carousel-text{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    width: 80%;
+    height: 100%;
+    width: 480px;
+    position: absolute;
+    left: 40px;
+    padding-left: 40px;
+    transform: translateY(100%);
+    transition: all 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.c-home-carousel-text:first-child{
+    transform: translateY(0);
+}
+
+.c-home-carousel-text h2{
+    width: 100%;
+    font-size: 60px;
+    line-height: 1.125;
+    position: relative;
+}
+
+.c-home-carousel-text h2 a{
+    text-decoration: none;
+    color: var(--black);
+}
+
+.c-home-carousel-text h2 a:hover span{
+   background: var(--blue);
+}
+
+span.c-home-carousel-text-category{
+    position: absolute;
+    z-index: -1;
+    left: -40px;
+    top: -40px;
+    font-size: 120px;
+    opacity: .1;
+    text-transform: uppercase;
+}
+
+.c-home-carousel-text-author{
+    margin-top: 42px;
+}
+
+.c-home-carousel-text-author span{
+    display: block;
+    font-weight: 600;
+    opacity: .5;
+    margin-bottom: 10px;
+}
+
+.c-home-carousel-right{
+    overflow: hidden;
+}
+
+.c-home-carousel-right-image-wrapper{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #2A2E43;
+}
+
+.c-home-carousel-right-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-100%);
+    transition: all 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.c-home-carousel-right-image:first-child{
+    transform: translateY(0);
+}
+
+.c-home-carousel-right-image img{
+    max-width: 500px;
+    max-height: 500px;
+}

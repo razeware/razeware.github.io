@@ -9,7 +9,6 @@ html {
 }
 
 body{
-  background: $grey-black-squeeze;
 }
 
 *,
@@ -34,7 +33,7 @@ pre {
 }
 
 a, button{
-  transition: all .3s ease-out;
+  transition: all .15s ease-out;
 }
 
 button {

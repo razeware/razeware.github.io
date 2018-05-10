@@ -1,8 +1,29 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
 ---
+
+// Abstracts
+// ---------
+@import 'abstracts/variables';
+
+// Libraries
+// ---------
+@import 'lib/normalize';
 
 // Base
 // ---------
 @import 'base/base';
 @import 'base/typography';
+
+// Layouts
+// ---------
+// @import 'layouts/layouts';
+
+// Components
+// ---------
+@import 'components/header';
+@import 'components/footer';
+@import 'components/home';
+@import 'components/blog';
+@import 'components/post';
+@import 'components/quote';
+

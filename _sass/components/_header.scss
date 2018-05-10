@@ -1,0 +1,48 @@
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+header#c-header{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    width: 100%;
+    height: 60px;
+    margin-top: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    padding: 0 30px;
+}  
+
+header#c-header nav{
+    display: flex;
+    align-items: center;
+} 
+
+header#c-header nav ul{
+    padding: 0;
+    margin: 0;
+}
+
+header#c-header nav ul li{
+    display: inline-block;
+    margin-right: 30px;
+}
+
+header#c-header nav ul li a{
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--black);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+header#c-header nav ul li a:hover{
+    background: #B4E7F8;
+}
+
+.c-header--white ul li a{
+    color: white !important;
+}

@@ -1,0 +1,32 @@
+/* ==========================================================================
+   Footer
+   ========================================================================== */ 
+
+footer#c-footer{
+    background: rgba(55,55,55,.02); 
+    display: grid;  
+    grid-template-columns: repeat(3, 1fr);
+    height: 90px;
+}
+
+footer#c-footer div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+}
+
+footer#c-footer div a, footer#c-footer div span{
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--black);
+    text-decoration: none;
+    opacity: .5;
+}
+
+footer#c-footer div a:hover{
+     background: #B4E7F8;
+}
+
+footer#c-footer div:last-child{
+    justify-content: flex-end;
+}

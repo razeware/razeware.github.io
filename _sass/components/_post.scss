@@ -1,0 +1,204 @@
+/* ==========================================================================
+   Post - Hero
+   ========================================================================== */
+
+section.c-post-hero{
+    background: #2A2E43;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}   
+
+div.c-post-hero-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+section.c-post-hero h1{
+    font-size: 60px;
+    line-height: 1.125;
+    color: white;
+    position: relative;
+}
+
+section.c-post-hero h1 > span{
+    position: absolute;
+    left: -40px;
+    top: -40px;
+    font-size: 120px;
+    opacity: .1;
+    text-transform: uppercase;
+}
+
+.c-post-hero-quote{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 21px;
+    font-style: italic;
+    line-height: 1.5;
+    color: white;
+    margin-top: 36px;
+    position: relative;
+}
+
+.c-post-hero-quote::before{
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: -9890px;
+    width: 10000px;
+    height: 3px;
+    background-color: white;
+    opacity: .3;
+}
+
+section.c-post-hero img{
+    width: 100%;
+    max-width: 500px;
+}
+
+/* ==========================================================================
+   Post - Content
+   ========================================================================== */
+
+main.c-post{
+    max-width: 945px;
+    margin: 0 auto;
+    position: relative;
+}
+
+div.c-post-wrapper{
+    max-width: 705px;
+    padding: 80px 0;
+    position: relative;
+}
+
+.c-post-meta{
+    display: block;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    position: absolute;
+    top: -80px;
+}
+
+div.c-post-wrapper a{
+    color: var(--black);
+    background: #B4E7F8;
+}
+
+div.c-post-wrapper p, div.c-post-wrapper ul, div.c-post-wrapper ol{
+    margin-top: 24px;
+}
+
+div.c-post-wrapper > p{
+    font-size: 21px;
+    line-height: 1.6;
+}
+
+div.c-post-wrapper > p:first-child:first-letter{
+  float: left;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 80px;
+  font-weight: 600;
+  line-height: 60px;
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-left: 3px;
+}
+
+div.c-post-wrapper > p:first-child{
+    margin-top: 0;
+}
+
+div.c-post-wrapper h2, h3, h4, h5{
+    margin-top: 30px;
+    margin-bottom: -18px;
+}
+
+div.c-post-wrapper h2{
+    font-size: 36px;
+}
+
+div.c-post-wrapper h3{
+    font-size: 30px;
+}
+
+div.c-post-wrapper h4{
+    font-size: 24px
+}
+
+div.c-post-wrapper h5{
+    font-size: 21px
+}
+
+div.c-post-wrapper ol li, div.c-post-wrapper ul li{
+    font-size: 21px;
+    line-height: 1.6; 
+}
+
+div.c-post-wrapper ul{
+    list-style-type: square;
+    padding-left: 24px;
+}
+
+/* ==========================================================================
+   Post - More Like This
+   ========================================================================== */
+
+section.c-more-like-this{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+section.c-more-like-this > a {
+    display: flex;
+    text-decoration: none;
+}   
+
+div.c-more-like-this-post{
+    overflow: hidden;
+    padding: 70px 100px;
+    position: relative;
+    background: #2A2E43;
+}
+
+div.c-more-like-this-post > span{
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+div.c-more-like-this-post h3{
+    position: relative;
+    font-size: 42px;
+    line-height: 1.125;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+div.c-more-like-this-post h3 > span{
+    position: absolute;
+    left: -30px;
+    top: -30px;
+    font-size: 90px;
+    opacity: .1;
+    text-transform: uppercase;
+}
+
+div.c-more-like-this-post-artwork{
+    width: 400px;
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    bottom: -380px;
+    margin-left: -200px;
+}
+
+div.c-more-like-this-post-artwork img{
+    width: 100%;
+}
