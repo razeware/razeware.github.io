@@ -1,7 +1,8 @@
 ---
 layout: posts
-title: "Posts"
+title: "Blog"
 permalink: /posts/
+logo: "--black"
 ---
 
 {% if site.posts.size > 0 %}

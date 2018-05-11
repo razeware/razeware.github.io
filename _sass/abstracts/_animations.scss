@@ -1,0 +1,46 @@
+/**
+ * This file contains all animations.
+ *
+ * 1. Animations
+ *
+ */   
+
+/* ==========================================================================
+   1. Animations
+   ========================================================================== */
+
+@keyframes a-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes a-fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes a-fade-in-down {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes a-scale-in {
+  from { opacity: 0; transform: scale(.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+%a-fade-in{
+  animation: a-fade-in 2s;
+}
+
+%a-fade-in-up{
+  animation: a-fade-in-up 2s;
+}
+
+%a-fade-in-down{
+  animation: a-fade-in-down 2s;
+}
+
+%a-scale-in{
+  animation: a-scale-in 1.5s;
+}

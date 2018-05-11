@@ -7,6 +7,13 @@ footer#c-footer{
     display: grid;  
     grid-template-columns: repeat(3, 1fr);
     height: 90px;
+
+    @include breakpoint("mobile-large"){
+        grid-template-columns: repeat(1, 1fr);
+        height: 120px;
+        padding: 30px 0;
+    }
+
 }
 
 footer#c-footer div{
@@ -29,4 +36,9 @@ footer#c-footer div a:hover{
 
 footer#c-footer div:last-child{
     justify-content: flex-end;
+
+    @include breakpoint("mobile-large"){
+      justify-content: center;   
+    }
+
 }

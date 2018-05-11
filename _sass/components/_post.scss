@@ -3,11 +3,15 @@
    ========================================================================== */
 
 section.c-post-hero{
-    background: #2A2E43;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     display: flex;
     align-items: center;
     overflow: hidden;
+
+    @include breakpoint("mobile-large"){
+        padding: 120px 0;
+    }
 }   
 
 div.c-post-hero-wrapper{
@@ -16,6 +20,18 @@ div.c-post-hero-wrapper{
     align-items: center;
     max-width: 1280px;
     margin: 0 auto;
+
+    @include breakpoint("mobile-large"){
+        grid-template-columns: 1fr;
+    }
+}
+
+.c-post-hero__image{
+    @extend %a-scale-in;
+
+    @include breakpoint("mobile-large"){
+        display: none;
+    }
 }
 
 section.c-post-hero h1{
@@ -23,6 +39,12 @@ section.c-post-hero h1{
     line-height: 1.125;
     color: white;
     position: relative;
+    @extend %a-fade-in-up;
+
+    @include breakpoint("mobile-large"){
+        font-size: 42px;
+    }
+
 }
 
 section.c-post-hero h1 > span{
@@ -42,6 +64,12 @@ section.c-post-hero h1 > span{
     color: white;
     margin-top: 36px;
     position: relative;
+    @extend %a-fade-in-up;
+
+     @include breakpoint("mobile-large"){
+        font-size: 18px;
+     }
+
 }
 
 .c-post-hero-quote::before{
@@ -72,8 +100,12 @@ main.c-post{
 
 div.c-post-wrapper{
     max-width: 705px;
-    padding: 80px 0;
+    padding: 60px 0;
     position: relative;
+
+    @include breakpoint("mobile-large"){
+        padding: 30px 0;
+    }
 }
 
 .c-post-meta{
@@ -83,6 +115,7 @@ div.c-post-wrapper{
     font-weight: 600;
     position: absolute;
     top: -80px;
+    @extend %a-fade-in-up;
 }
 
 div.c-post-wrapper a{
@@ -95,8 +128,13 @@ div.c-post-wrapper p, div.c-post-wrapper ul, div.c-post-wrapper ol{
 }
 
 div.c-post-wrapper > p{
-    font-size: 21px;
+    font-size: 20px;
     line-height: 1.6;
+
+    @include breakpoint("mobile-large"){
+        font-size: 17px;
+    }
+
 }
 
 div.c-post-wrapper > p:first-child:first-letter{
@@ -116,33 +154,85 @@ div.c-post-wrapper > p:first-child{
 
 div.c-post-wrapper h2, h3, h4, h5{
     margin-top: 30px;
-    margin-bottom: -18px;
+    margin-bottom: -12px;
 }
 
 div.c-post-wrapper h2{
     font-size: 36px;
+    line-height: 1.25;
+
+    @include breakpoint("mobile-large"){
+        font-size: 30px;
+    }
+
 }
 
 div.c-post-wrapper h3{
     font-size: 30px;
+
+    @include breakpoint("mobile-large"){
+        font-size: 24px;
+    }
 }
 
 div.c-post-wrapper h4{
-    font-size: 24px
+    font-size: 24px;
+
+    @include breakpoint("mobile-large"){
+        font-size: 21px;
+    }
 }
 
 div.c-post-wrapper h5{
-    font-size: 21px
+    font-size: 21px;
+
+    @include breakpoint("mobile-large"){
+        font-size: 18px;
+    }
 }
 
 div.c-post-wrapper ol li, div.c-post-wrapper ul li{
     font-size: 21px;
-    line-height: 1.6; 
+    line-height: 1.45;
+    margin-bottom: 15px; 
+
+    @include breakpoint("mobile-large"){
+        font-size: 17px;
+    }
+}
+
+div.c-post-wrapper ul, ol{
+    margin-bottom: 42px;
 }
 
 div.c-post-wrapper ul{
     list-style-type: square;
     padding-left: 24px;
+}
+
+div.c-post-wrapper code{
+    font-size: 18px;
+    background: rgba(0,0,0,.05);
+    padding: 3px 4px;
+    margin: 0 2px;
+
+    @include breakpoint("mobile-large"){
+        font-size: 15px;
+    }
+
+}    
+
+div.c-post-wrapper pre{
+    margin-top: 30px;
+
+    code{
+        display: block;
+        padding: 25px 25px 25px 30px;
+        border-radius: 4px;
+        box-shadow: inset 0 0 0 1px #eee;
+        background: none;;
+    }
+
 }
 
 /* ==========================================================================
@@ -153,18 +243,32 @@ section.c-more-like-this{
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
+
+    @include breakpoint("mobile-large"){
+        grid-template-columns: 1fr;
+    }
+
 }
 
 section.c-more-like-this > a {
     display: flex;
     text-decoration: none;
+
+    &:hover .c-more-like-this-post-artwork{
+        transform: scale(1.05);
+    }
+
 }   
 
 div.c-more-like-this-post{
     overflow: hidden;
     padding: 70px 100px;
     position: relative;
-    background: #2A2E43;
+
+    @include breakpoint("mobile-large"){
+        padding: 70px 60px;
+    }
+
 }
 
 div.c-more-like-this-post > span{
@@ -175,10 +279,15 @@ div.c-more-like-this-post > span{
 
 div.c-more-like-this-post h3{
     position: relative;
+    z-index: 1;
     font-size: 42px;
     line-height: 1.125;
     color: #ffffff;
     margin-top: 10px;
+
+    @include breakpoint("mobile-large"){
+        font-size: 36px;
+    }
 }
 
 div.c-more-like-this-post h3 > span{
@@ -197,6 +306,7 @@ div.c-more-like-this-post-artwork{
     left: 50%;
     bottom: -380px;
     margin-left: -200px;
+    transition: all .25s linear;
 }
 
 div.c-more-like-this-post-artwork img{

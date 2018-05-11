@@ -1,0 +1,21 @@
+/**
+ * This file contains all common layouta.
+ *
+ * 1. Padding
+ *
+ *
+ */   
+
+/* ==========================================================================
+ 1. Padding
+ ========================================================================== */
+
+.l-padding--60{
+  padding: 0 60px;
+} 
+
+.l-padding--mobile{
+  @include breakpoint("laptop"){
+        padding: 0 30px;
+    }
+}

@@ -1,8 +1,10 @@
 ---
 layout: post
+logo: "--white"
+header_style: "c-header--white"
 title: "How we built a design language"
 date: "April 05, 2017"
-author: Sam
+author: Sam Davies
 color: "#675C78"
 image: "pattern-2"
 category: "css"

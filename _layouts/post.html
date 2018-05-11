@@ -3,7 +3,7 @@ layout: default
 ---
 
 <section class="c-post-hero" style="background:{{ page.color }};">
-    <div class="c-post-hero-wrapper">
+    <div class="c-post-hero-wrapper l-padding--60">
         <div>
             <h1>{{ page.title | escape }}<span>{{ page.category }}</span></h1>
             <p class="c-post-hero-quote">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp“{{ page.excerpt }}” </p>
@@ -14,16 +14,16 @@ layout: default
     </div>
 </section>
 
-<main class="c-post">
+<main class="c-post l-padding--mobile">
   <span class="c-post-meta">[ {{ page.date | date: '%B %d, %Y' }} · {{ page.author }} ]</span>
-  <div class="c-post-wrapper">
+  <div class="c-post-wrapper markdown-body">
     {{ content }}
   </div>  
 </main>  
 
 {% if site.posts.size > 0 %}
   <section class="c-more-like-this">
-    {% for post in site.posts %}
+    {% for post in site.posts limit:2 %}
       
           <a href="{{ post.url | relative_url }}">
           <div class="c-more-like-this-post" style="background:{{ post.color }};">

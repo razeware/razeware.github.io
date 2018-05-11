@@ -9,6 +9,15 @@ main.c-grid-blog-post-wrapper{
     grid-row-gap: 50px;
     max-width: 1080px;
     margin: 150px auto 0;
+
+    @include breakpoint("tablet"){
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint("mobile"){
+        grid-template-columns: repeat(1, 1fr);
+    }
+
 }   
 
 .c-post-hero__image{
@@ -42,6 +51,29 @@ div.c-grid-blog-post-artwork img{
     top: 50%;
     max-width: 200px;
     margin: -100px 0 0 -100px;
+    transition: max-width .25s linear;
+    @extend %a-scale-in;
+
+    @include breakpoint("laptop"){
+        max-width: 150px;
+        margin: -75px 0 0 -75px;
+    }
+
+    @include breakpoint("tablet"){
+        max-width: 200px;
+        margin: -100px 0 0 -100px;
+    }
+
+    @include breakpoint("mobile-large"){
+        max-width: 150px;
+        margin: -75px 0 0 -75px;
+    }
+
+    @include breakpoint("mobile"){
+        max-width: 200px;
+        margin: -100px 0 0 -100px;
+    }
+
 }
 
 div.c-grid-blog-post h2{

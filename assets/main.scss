@@ -4,10 +4,13 @@
 // Abstracts
 // ---------
 @import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/animations';
 
 // Libraries
 // ---------
 @import 'lib/normalize';
+// @import 'lib/github-markdown';
 
 // Base
 // ---------
@@ -16,13 +19,13 @@
 
 // Layouts
 // ---------
-// @import 'layouts/layouts';
+@import 'layouts/layouts';
 
 // Components
 // ---------
 @import 'components/header';
 @import 'components/footer';
-@import 'components/home';
+@import 'components/carousel';
 @import 'components/blog';
 @import 'components/post';
 @import 'components/quote';
