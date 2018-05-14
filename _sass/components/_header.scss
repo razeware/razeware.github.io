@@ -38,10 +38,12 @@ header#c-header nav ul li a{
     color: var(--black);
     text-decoration: none;
     text-transform: uppercase;
+    padding: 10px 0;
+    transition: border 0s;
 }
 
 header#c-header nav ul li a:hover{
-    background: #B4E7F8;
+    border-top: 2px solid #B4E7F8;
 }
 
 .c-header--white ul li a{

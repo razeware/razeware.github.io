@@ -6,20 +6,22 @@ logo: "--white"
 <main class="c-home-carousel">
     <div class="c-home-carousel-left">
         <div class="c-home-carousel-left-text-wrapper">
-            {% for post in site.posts limit:5 %}
+            {% for post in site.posts limit:1 %}
               <div class="c-home-carousel-text"> 
                   <h2><a href="{{ post.url | relative_url }}"><span>{{ post.title | escape }}</span></a><span class="c-home-carousel-text-category">CSS</span></h2>
                   <div class="c-home-carousel-text-author">
-                      <!-- <span>Written </span> -->
                       <span>[ {{ post.date | date: '%B %d, %Y' }} · {{ post.author }} ]</span>
                   </div>
               </div>
             {% endfor %}
         </div>
+        <span class="c-home-carousel__paginator">
+          <span class="c-home-carousel__paginator-page">1</span> of <span class="c-home-carousel__paginator-total">5</span>
+        </span>
     </div>
     <div class="c-home-carousel-right">
         <div class="c-home-carousel-right-image-wrapper">
-            {% for post in site.posts limit:5 %}
+            {% for post in site.posts limit:1 %}
               <div class="c-home-carousel-right-image" style="background:{{ post.color }};">
                   <a href="{{ post.url | relative_url }}"><img src="/assets/img/{{ post.image }}.png"></a>
               </div>
@@ -76,10 +78,8 @@ logo: "--white"
       let textNode = textContainer.firstElementChild;
       let textNodeInner = textContainer.firstElementChild.innerHTML;
       let textBg = window.getComputedStyle(textNode, null).getPropertyValue('background-color');
-
-      console.log(textBg);
-
       textContainer.appendChild(elem);
+      //Get background color
       elem.style.backgroundColor = textBg;
       elem.innerHTML = textNodeInner;
 
@@ -105,10 +105,31 @@ logo: "--white"
       }
   }
 
+  //Carousel paginator to update the current post on the carousel
+  const numberOfSlides = document.querySelectorAll('.c-home-carousel-text');
+  let currentPage = document.querySelector('.c-home-carousel__paginator-page');
+  document.querySelector('.c-home-carousel__paginator-total').innerHTML = numberOfSlides.length;
+
+  function updatePagination(){
+
+    let count = 1;
+
+    if(Number(currentPage.innerHTML) < numberOfSlides.length){
+      count++;
+      currentPage.innerHTML = count;
+    }
+    else{
+      count = 0;
+      currentPage.innerHTML =  1;
+    }
+    
+  }
+
   //Change carousel slides every 5 seconds
    setInterval(function(){
       translateCarouselNodes(textCarousel);
       translateCarouselNodes(imageCarousel);
+      updatePagination();
    }, 5000);
 
 </script>

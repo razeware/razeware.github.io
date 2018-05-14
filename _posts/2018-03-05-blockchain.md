@@ -2,7 +2,7 @@
 layout: post
 logo: "--white"
 header_style: "c-header--white"
-title: "Using AWS for loading assets"
+title: "Build your own Javascript blockchain"
 date: "April 05, 2017"
 author: "Sam Davies"
 author_role: "CTO Razeware"
@@ -10,13 +10,11 @@ author_bio: "Lorem Ipsum is simply dummy text of the printing and typesetting in
 author_image: "sam-davies"
 color: "#2A2E43"
 image: "pattern-1"
-category: "aws"
-excerpt: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+category: "JS"
+excerpt: "This tutorial is adapted from this excellent post about writing a basic blockchain using Javascript."
 ---
 
 ## Code your own blockchain in less than 200 lines of Go!
-
-*If this isn’t your first time reading this post, check out Part 2: [Here](https://www.google.com)*
 
 This tutorial is adapted from this excellent post about writing a basic blockchain using Javascript. We’ve ported it over to Go and added some extra goodies like viewing your blockchain in a web browser. If you have any questions about the following tutorial, make sure to join our Telegram chat. Ask us anything! [I'm an inline-style link](https://www.google.com)
 
