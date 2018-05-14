@@ -5,6 +5,9 @@ header_style: "c-header--white"
 title: "Using AWS for loading assets"
 date: "April 05, 2017"
 author: "Sam Davies"
+author_role: "CTO Razeware"
+author_bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+author_image: "sam-davies"
 color: "#2A2E43"
 image: "pattern-1"
 category: "aws"
@@ -13,9 +16,9 @@ excerpt: "Lorem Ipsum is simply dummy text of the printing and typesetting indus
 
 ## Code your own blockchain in less than 200 lines of Go!
 
-*If this isn’t your first time reading this post, check out Part 2: Networking here!*
+*If this isn’t your first time reading this post, check out Part 2: [Here](https://www.google.com)*
 
-This tutorial is adapted from this excellent post about writing a basic blockchain using Javascript. We’ve ported it over to Go and added some extra goodies like viewing your blockchain in a web browser. If you have any questions about the following tutorial, make sure to join our Telegram chat. Ask us anything!
+This tutorial is adapted from this excellent post about writing a basic blockchain using Javascript. We’ve ported it over to Go and added some extra goodies like viewing your blockchain in a web browser. If you have any questions about the following tutorial, make sure to join our Telegram chat. Ask us anything! [I'm an inline-style link](https://www.google.com)
 
 The data examples in this tutorial will be based on your resting heartbeat. We are a healthcare company after all :-) For fun, count your pulse for a minute (beats per minute) and keep that number in mind throughout the tutorial.
 

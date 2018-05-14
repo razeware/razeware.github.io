@@ -19,6 +19,15 @@ layout: default
   <div class="c-post-wrapper markdown-body">
     {{ content }}
   </div>  
+  <div class="c-written-by">
+    <div class="c-written-by__image-wrapper">
+      <figure class="c-written-by__image">
+        <img src="/assets/img/{{ page.author_image }}@2x.png">
+      </figure>
+    </div>
+    <div class="c-written-by__title">Written by {{ page.author }} — {{ page.author_role }}</div>
+    <p class="c-written-by__description">{{ page.author_bio }}</p>
+  </div>
 </main>  
 
 {% if site.posts.size > 0 %}
@@ -35,4 +44,8 @@ layout: default
     {% endfor %}
   </section>
 {% endif %} 
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
