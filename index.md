@@ -1,12 +1,13 @@
 ---
 layout: default
+permalink: /
 logo: "--white"
 ---
 
 <main class="c-home-carousel">
     <div class="c-home-carousel-left">
         <div class="c-home-carousel-left-text-wrapper">
-            {% for post in site.posts limit:1 %}
+            {% for post in site.posts limit:5 %}
               <div class="c-home-carousel-text"> 
                   <h2><a href="{{ post.url | relative_url }}"><span>{{ post.title | escape }}</span></a><span class="c-home-carousel-text-category">CSS</span></h2>
                   <div class="c-home-carousel-text-author">
@@ -21,7 +22,7 @@ logo: "--white"
     </div>
     <div class="c-home-carousel-right">
         <div class="c-home-carousel-right-image-wrapper">
-            {% for post in site.posts limit:1 %}
+            {% for post in site.posts limit:5 %}
               <div class="c-home-carousel-right-image" style="background:{{ post.color }};">
                   <a href="{{ post.url | relative_url }}"><img src="/assets/img/{{ post.image }}.png"></a>
               </div>

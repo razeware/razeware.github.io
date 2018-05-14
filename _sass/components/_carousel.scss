@@ -13,7 +13,7 @@ main.c-home-carousel{
     }
 
     @include breakpoint("mobile-large"){
-        grid-template-columns: 1.4fr .6fr;
+        grid-template-columns: 1.5fr .5fr;
     }
 }
 
@@ -28,7 +28,6 @@ main.c-home-carousel{
 
     @include breakpoint("mobile-large"){
         padding: 120px 0;
-        overflow-x: visible;
     }
 
 }
@@ -96,7 +95,7 @@ main.c-home-carousel{
     @extend %a-fade-in-up;
 
    @include breakpoint("mobile-large"){
-        font-size: 42px;
+        font-size: 36px;
     }
 }
 
@@ -104,10 +103,6 @@ main.c-home-carousel{
     text-decoration: none;
     color: var(--black);
     transition: all 0s;
-
-    @include breakpoint("mobile-large"){
-        background: var(--blue);
-    }
 }
 
 .c-home-carousel-text h2 a:hover span{
