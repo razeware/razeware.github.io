@@ -4,17 +4,17 @@ logo: "--white"
 header_style: "c-header--white"
 title: "Build your own Javascript blockchain"
 date: "April 05, 2017"
-author: "Sam Davies"
+author: "John Smith"
 author_role: "CTO Razeware"
 author_bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
 author_image: "sam-davies"
 color: "#2A2E43"
 image: "pattern-1"
-category: "JS"
+category: "Test"
 excerpt: "This tutorial is adapted from this excellent post about writing a basic blockchain using Javascript."
 ---
 
-## Code your own blockchain in less than 200 lines of Go!
+## This is just a test post.
 
 This tutorial is adapted from this excellent post about writing a basic blockchain using Javascript. We’ve ported it over to Go and added some extra goodies like viewing your blockchain in a web browser. If you have any questions about the following tutorial, make sure to join our Telegram chat. Ask us anything! [I'm an inline-style link](https://www.google.com)
 
