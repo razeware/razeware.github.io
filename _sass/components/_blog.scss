@@ -1,0 +1,100 @@
+/* ==========================================================================
+   Blog
+   ========================================================================== */   
+
+main.c-grid-blog-post-wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 50px;
+    max-width: 1080px;
+    margin: 150px auto 0;
+
+    @include breakpoint("tablet"){
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint("mobile"){
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}   
+
+.c-post-hero__image{
+    text-align: center;
+}
+
+div.c-grid-blog-post{
+
+}
+
+div.c-grid-blog-post a{
+    text-decoration: none;
+} 
+
+div.c-grid-blog-post a:hover h2 span{
+    background: #B4E7F8;
+}
+
+div.c-grid-blog-post-artwork{
+    width: 100%;
+    padding-bottom: 75%;
+    background: #2A2E43;
+    position: relative;
+    overflow: hidden;
+}
+
+div.c-grid-blog-post-artwork img{
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    max-width: 200px;
+    margin: -100px 0 0 -100px;
+    transition: max-width .25s linear;
+    @extend %a-scale-in;
+
+    @include breakpoint("laptop"){
+        max-width: 150px;
+        margin: -75px 0 0 -75px;
+    }
+
+    @include breakpoint("tablet"){
+        max-width: 200px;
+        margin: -100px 0 0 -100px;
+    }
+
+    @include breakpoint("mobile-large"){
+        max-width: 150px;
+        margin: -75px 0 0 -75px;
+    }
+
+    @include breakpoint("mobile"){
+        max-width: 200px;
+        margin: -100px 0 0 -100px;
+    }
+
+}
+
+div.c-grid-blog-post h2{
+    font-size: 27px;
+    line-height: 1.25;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+    color: var(--black);
+}
+
+span.c-grid-blog-post-meta{
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0 10px;
+    color: var(--black);
+    opacity: .5;
+
+    span{
+        text-transform: uppercase;
+    }
+
+}

@@ -1,0 +1,102 @@
+/**
+ * A thin layer on top of normalize.css
+ */
+ 
+
+html {
+  box-sizing: border-box;
+  font-family: sans-serif; 
+}
+
+body{
+  color: var(--black);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+a, button{
+  transition: all .15s ease-out;
+}
+
+button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+button:focus {
+  outline: none;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+iframe {
+  border: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ol{
+  list-style: decimal;
+  padding-left: 1.5rem;
+
+  li{
+    margin-top: 10px;
+
+    &:first-child{
+      margin-top: 0;
+    }
+
+  }
+}
+
+/**
+ * Suppress the focus outline on elements that cannot be accessed via keyboard.
+ * This prevents an unwanted focus outline from appearing around elements that
+ * might still respond to pointer events.
+ */
+
+[tabindex="-1"]:focus {
+  outline: none !important;
+} 
+
+/**
+ * Standardise SVG rendering
+ */
+
+svg g, svg path {
+  fill: inherit;
+}
+
+svg.icon{
+  width: 32px;
+  height: 32px;
+}
