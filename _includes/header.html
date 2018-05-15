@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="/assets/main.css">
+  </head>
+  <body>
+    <header id="c-header" class="{{ page.header_style }}">
+        <nav>
+            <ul>
+                {% assign current = page.url | downcase | split: '/' %}
+                <li><a href='/' {% if current[1] == '/' %}class='active'{% endif %}>Home</a></li>
+                <li><a href='/posts' {% if current[1] == 'posts' %}class='active'{% endif %}>Posts</a></li>
+            </ul>
+        </nav>
+        <div><a href="https://www.raywenderlich.com"><img src="/assets/img/logo{{ page.logo }}.svg"></a></div>
+    </header>

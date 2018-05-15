@@ -1,0 +1,19 @@
+/* ==========================================================================
+   Quote
+   ========================================================================== */
+
+aside#quote{
+    display: grid;
+    padding: 120px 30px;
+}
+
+aside#quote p{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 18px;
+    opacity: .5;
+    text-align: center;
+}
+
+aside#quote p span{
+    font-style: italic;
+}

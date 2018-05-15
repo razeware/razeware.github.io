@@ -1,0 +1,53 @@
+/**
+ * This file contains all common layouta.
+ *
+ * 1. Padding
+ *
+ * 2. 404
+ *
+ */   
+
+/* ==========================================================================
+ 1. Padding
+ ========================================================================== */
+
+.l-padding--60{
+  padding: 0 60px;
+} 
+
+.l-padding--mobile{
+  @include breakpoint("laptop"){
+        padding: 0 30px;
+    }
+}
+
+/* ==========================================================================
+ 2. 404
+ ========================================================================== */
+
+ .l-404{
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 30px;
+
+  > div{
+
+    h1{
+      font-size: 120px;
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+
+    > div{
+      width: 100%;
+      text-align: center;
+    }
+
+
+  }
+
+ }

@@ -1,23 +1,18 @@
 ---
-layout: page
-title: Posts
+layout: posts
+title: "Blog"
 permalink: /posts/
+logo: "--black"
 ---
 
 {% if site.posts.size > 0 %}
-  <ul>
-    {% for post in site.posts %}
-    <li>
-      {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-      <h3>
-        <a href="{{ post.url | relative_url }}">
-          {{ post.title | escape }}
+  {% for post in site.posts %}
+  <div class="c-grid-blog-post">
+    <a href="{{ post.url | relative_url }}">
+        <div class="c-grid-blog-post-artwork" style="background:{{ post.color }};"><img src="/assets/img/{{ post.image }}.png"></div>
+        <h2><span>{{ post.title | escape }}</span></h2>
+        <span class="c-grid-blog-post-meta">{{ post.date | date: '%B %d, %Y' }}  ·  <span>{{ post.category }}</span></span>
         </a>
-      </h3>
-      {% if site.show_excerpts %}
-        {{ post.excerpt }}
-      {% endif %}
-    </li>
-    {% endfor %}
-  </ul>
-{% endif %}
+  </div>  
+  {% endfor %}
+{% endif %} 

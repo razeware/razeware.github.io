@@ -1,18 +1,51 @@
 ---
 layout: default
 ---
-<article>
 
-  <header>
-    <h1>{{ page.title | escape }}</h1>
-    <p>
-      {% if page.author %}
-        • <span>{{ page.author }}</span>
-      {% endif %}
-    </p>
-  </header>
+<section class="c-post-hero" style="background:{{ page.color }};">
+    <div class="c-post-hero-wrapper l-padding--60">
+        <div>
+            <h1>{{ page.title | escape }}<span>{{ page.category }}</span></h1>
+            <p class="c-post-hero-quote">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp“{{ page.excerpt }}” </p>
+        </div>
+        <div class="c-post-hero__image">
+            <img src="/assets/img/{{ page.image }}.png">
+        </div>
+    </div>
+</section>
 
-  <div>
+<main class="c-post l-padding--mobile">
+  <span class="c-post-meta">[ {{ page.date | date: '%B %d, %Y' }} · {{ page.author }} ]</span>
+  <div class="c-post-wrapper markdown-body">
     {{ content }}
+  </div>  
+  <div class="c-written-by">
+    <div class="c-written-by__image-wrapper">
+      <figure class="c-written-by__image">
+        <img src="/assets/img/{{ page.author_image }}@2x.png">
+      </figure>
+    </div>
+    <div class="c-written-by__title">Written by {{ page.author }} — {{ page.author_role }}</div>
+    <p class="c-written-by__description">{{ page.author_bio }}</p>
   </div>
-</article>
+</main>  
+
+{% if site.posts.size > 0 %}
+  <section class="c-more-like-this">
+    {% for post in site.posts limit:2 %}
+      
+          <a href="{{ post.url | relative_url }}">
+          <div class="c-more-like-this-post" style="background:{{ post.color }};">
+              <span>[ {{ post.date | date: '%B %d, %Y' }} ]</span>
+              <h3>{{ post.title | escape }}<span>{{ post.category }}</span></h3>
+              <div class="c-more-like-this-post-artwork"><img src="/assets/img/{{ post.image }}.png"></div>
+          </div>
+          </a>
+    {% endfor %}
+  </section>
+{% endif %} 
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
