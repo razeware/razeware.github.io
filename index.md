@@ -9,7 +9,7 @@ logo: "--white"
         <div class="c-home-carousel-left-text-wrapper">
             {% for post in site.posts limit:5 %}
               <div class="c-home-carousel-text"> 
-                  <h2><a href="{{ post.url | relative_url }}"><span>{{ post.title | escape }}</span></a><span class="c-home-carousel-text-category">CSS</span></h2>
+                  <h2><a href="{{ post.url | relative_url }}"><span>{{ post.title | escape }}</span></a><span class="c-home-carousel-text-category">{{ post.category }}</span></h2>
                   <div class="c-home-carousel-text-author">
                       <span>[ {{ post.date | date: '%B %d, %Y' }} · {{ post.author }} ]</span>
                   </div>
