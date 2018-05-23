@@ -243,6 +243,33 @@ div.c-post-wrapper pre{
 
 }
 
+div.c-post-wrapper blockquote{
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.6;
+    margin-top: 24px;
+    padding:0 20px;
+
+    @include breakpoint("mobile-large"){
+        font-size: 17px;
+    }
+
+    p{
+        display: inline;
+        background-color: #f1f1f1;
+    }
+
+    blockquote{
+        margin-top: -10px !important;
+        p{
+            font-size: 18px;
+            font-style: normal;
+            background-color: white;
+        }
+    }
+
+}
+
 /* ==========================================================================
    Post - More Like This
    ========================================================================== */
