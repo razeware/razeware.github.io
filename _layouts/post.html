@@ -9,7 +9,7 @@ layout: default
             <p class="c-post-hero-quote">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp“{{ page.excerpt }}” </p>
         </div>
         <div class="c-post-hero__image">
-            <img src="/assets/img/{{ page.image }}.png">
+            <img src="{{ page.image }}">
         </div>
     </div>
 </section>
@@ -22,7 +22,7 @@ layout: default
   <div class="c-written-by">
     <div class="c-written-by__image-wrapper">
       <figure class="c-written-by__image">
-        <img src="/assets/img/{{ page.author_image }}@2x.png">
+        <img src="/assets/img/{{ page.author_image }}">
       </figure>
     </div>
     <div class="c-written-by__title">Written by {{ page.author }} — {{ page.author_role }}</div>

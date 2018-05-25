@@ -14,18 +14,21 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Razeware Engineering Blog
-email: feedback@razeware.com
-description: >- # this means to ignore newlines until "baseurl:"
+email: support@razeware.com
+description: "Stories from the engineering team at Razeware. The tech behind the tutorials."
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "https://engineering.razeware.com" # the base hostname & protocol for your site, e.g. http://example.com
+twitter:
+  username: rwenderlich
+  card: summary
+github_username:  razeware
 permalink: /:title
 
 # Build settings
 markdown: kramdown
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 # SASS
 sass:
