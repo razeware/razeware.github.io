@@ -24,7 +24,7 @@ logo: "--white"
         <div class="c-home-carousel-right-image-wrapper">
             {% for post in site.posts limit:5 %}
               <div class="c-home-carousel-right-image" style="background:{{ post.color }};">
-                  <a href="{{ post.url | relative_url }}"><img src="/assets/img/{{ post.image }}.png"></a>
+                  <a href="{{ post.url | relative_url }}"><img src="{{ post.image }}"></a>
               </div>
             {% endfor %}
         </div>
