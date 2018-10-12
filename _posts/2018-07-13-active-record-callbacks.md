@@ -155,7 +155,7 @@ end
 
 The above code may not generate any errors, but it’s doing work unnecessarily. And if development continues down this path, things will likely end up in a state with many complex dependencies which will take more time to understand.
 
-## Consolidate logic into a separate class
+## Consolidate logic
 
 When dealing with multiple operations that touch on many different parts of a system, a good approach is to create a class to encapsulate all of this logic. Here, I’ve consolidated all of the related behavior into a single class:
 
