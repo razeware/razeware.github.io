@@ -2,11 +2,12 @@
 layout: post
 logo: "--white"
 header_style: "c-header--white"
-title: "Working with ActiveRecord Callback"
-date: "October 12, 2018"
+title: "Working with ActiveRecord Callbacks"
+date: "October 26, 2018"
 author: "Roel Bondoc"
 author_role: "Fullstack Developer Razeware"
-author_image: "roel-bondoc"
+author_bio: "Interests: Ruby on Rails, games, and basketball."
+author_image: "roel-bondoc@2x.jpeg"
 color: "#2A2E43"
 image: "/assets/img/pattern-2.png"
 category: "development"
@@ -15,13 +16,13 @@ excerpt: "Consider these techniques to avoid common callback pitfalls."
 
 We've all been there. You jump into an existing project. It's a standard Rails app, adhering to all the common Rails practices and design patterns. But the more you familiarize yourself with the app, the more it becomes apparent you are untangling a deep web of nested business logic, hidden behind those practices and design patterns that were suppose to make things easy. I'm talking about ActiveRecord callbacks which is one of the most powerful features of Rails.
 
-At Razeware, it is common practice to use callbacks as a design pattern. We have a Rails app that handles all the video content on raywenderlich.com. Within the app there are many models that often share information and behavior. We used callbacks to ensure certain operations took place when changes were made (like updating groups of videos when a course was updated). Overtime, the amount of callbacks increased, and so did the complexity of the models. I had the task to add a few small features which turned into a exercise of having to understand more of the app than needed to complete the task.
+At Razeware, it is common practice to use callbacks as a design pattern. We have a Rails app that handles all the video content on raywenderlich.com. Within the app there are many models that often share information and behavior. We used callbacks to ensure certain operations took place when changes were made (like updating groups of videos when a course was updated). Over time, the amount of callbacks increased, and so did the complexity of the models. I had the task to add a few small features, which very quickly ballooned into delving into and understanding far more of the codebase than should have been necessary.
 
 It is important to carefully consider when and where you use callbacks, otherwise you can easily find yourself in a predicament. With each callback you write, and as each day passes, you are adding to the mental requirement needed to understand how your models work. Let's take a look at some of the common issues you may run into and how we can work around them.
 
 ## Premature usage
 
-Sometimes you have to resist the temptation to use a tool just because it is there. This is basically the same idea as avoiding premature optimization: Until you know what you need to optimize, it’s better to follow the long route so that you can fully understand the issue before you over-design the solution.
+Sometimes you have to resist the temptation to use a tool just because it is there. This is the same idea as avoiding premature optimization: until you know what you need to optimize, it's better to prioritise code readability over optimisation, ensuring that you fully understand the issue before you over-design the solution.
 
 Consider the following business requirement:
 
@@ -46,7 +47,7 @@ class UsersController < ApplicationController
 end
 ```
 
-While this gives you a super-clean codebase, this hides away behavior into a class. If you are browsing your controller code six months down the road, you don’t have the complete context of this functionality without digging into the code further. You’ve gained clean code at the cost of obfuscating the details. When writing code, you aren’t just writing it for the present, but also for the person (maybe yourself!) reading it in the future.
+While this gives you a super-clean codebase, this hides behavior into a class. If you are browsing your controller code six months down the road, you don’t have the complete context of this functionality without digging into the code further. You’ve gained clean code at the cost of obfuscating the details. When writing code, you aren’t just writing it for the present, but also for the person (maybe yourself!) reading it in the future.
 
 Consider another business requirement:
 
