@@ -25,7 +25,7 @@ How did we do it? Well, funny you should ask, this post is a high-level review o
 
 Ray, who is indeed a real person, despite what the conspiracy theorists might have you believe, started the site nearly 9 years ago—as a simple blog. He chose the best tool for starting a blog—WordPress, and that served all the content you saw on the site right up until August of this year. It underwent many changes, with custom plugins and functionality built to support the book store, video subscriptions, the tutorial team etc, but it was still, at its core, WordPress.
 
-[PIC OF WORDPRESS MONOLITH]
+![](assets/img/2018-10-31/how_does_rw_work_01.png)
 
 Back in 2016, we decided that if we wanted to start adding extra functionality to the site then we needed to bite the bullet and step away from WordPress—our needs as a learning platform had started to push the limits of what blogging software could offer.
 
@@ -37,7 +37,7 @@ OK, so it wasn’t planned as a 2-year project, but the aim throughout the first
 
 Removing the forums and user account system was a major piece of work, which was designed to setup our infrastructure for future work. The forums are now hosted in discourse, which is not only a world-leading discussion platform, but also requires very little overhead from our engineering team. It sits in a docker container on a server on its own, with point and click upgrades every now and then. The only custom work we had to do was to build a plugin to support the [raywenderlich.com](https://www.raywenderlich.com/) accounts system.
 
-[PIC OF UPDATED ARCHITECTURE]
+![](assets/img/2018-10-31/how_does_rw_work_02.png)
 
 This first phase was a much bigger undertaking than we expected. At this stage we didn’t have a dedicated engineering team—it was work that Mic, Brian and did, alongside creating books and video content. Combining this with the huge amount of platform research required and the complexity of migration, we spent a long time working on this.
 
@@ -72,7 +72,7 @@ One of the key things about docker is that you should make your apps as stateles
 
 Anyway, this was a steep learning curve for us, but it has paid off many times over. I would definitely recommend investigating this approach for any server-side work you are considering.
 
-[IMAGE OF _betamax_]
+![](assets/img/2018-10-31/how_does_rw_work_03.png)
 
 
 ## Payments—not as easy as you’d hope
@@ -95,7 +95,7 @@ Paddle is based in the UK, which is actually a huge advantage for our US-based c
 
 Instead of building a nice, new payments pipeline, we instead to build two separate ones, and provide a simple user flow for users to switch from our old payment provider to the new one by entering their credit card, at a time that suited them. If they chose not to (and to this day, lots of users haven't) then their existing subscription would continue on the old payment provider.
 
-[IMAGE OF _kerching_]
+![](assets/img/2018-10-31/how_does_rw_work_04.png)
 
 Despite the fact that we now had an almost-full-time engineering team of two developers and one designer, these additional complications meant that this, once again, took longer than we hoped. However, once it was finished, our checkout flow was much improved, and we immediately saw an improvement in conversion rate.
 
@@ -130,7 +130,7 @@ Rails has a great view templating system in ActionView. It makes pulling content
 
 The architecture of [raywenderlich.com](https://www.raywenderlich.com/) today can be summarised as follows:
 
-[PIC]
+![](assets/img/2018-10-31/how_does_rw_work_05.png)
 ￼
 This model continues to use both _betamax_ and WordPress (_koenig_ in our handy naming system) as the canonical datastores. Content creators, team leads and editors still use these two systems to create records for the content created—ensuring that the content production workflow required minimal changes. These two systems maintain their databases of content, handle asset uploads and everything they’ve always done. Apart from presentation. That responsibility is instead transferred to _carolus_.
 
