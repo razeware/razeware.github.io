@@ -52,7 +52,7 @@ This was our first completely custom-built product, and as such we had the much-
 
 ## But Rails Doesn’t Scale!
 
-Ah yes! It’s the all-too-popular lazy lament of the self-proclaimed expert. There _is_ a shard of truth in this sentiment, however. Admittedly, Ruby is not an especially runtime-efficient language. However, for a site of the size of raywenderlich.com, Ruby more than makes up for that in its expressiveness and write-time efficiency. If the inefficiencies of Ruby were to become a problem, then we always have the option of ramping up our hardware. It’s not expensive to throw more compute power at a problem, and hardware is usually far cheaper than developers.
+Ah yes! It’s the all-too-popular lazy lament of the self-proclaimed expert. There _is_ a shard of truth in this sentiment, however. Admittedly, Ruby is not an especially runtime-efficient language. However, for a site of the size of [raywenderlich.com](https://www.raywenderlich.com/), Ruby more than makes up for that in its expressiveness and write-time efficiency. If the inefficiencies of Ruby were to become a problem, then we always have the option of ramping up our hardware. It’s not expensive to throw more compute power at a problem, and hardware is usually far cheaper than developers.
 
 I appreciate that I’m being a little facetious here. The key thing is that for our current size and traffic load (and for the vast majority of sites on the internet), we’re keen to prioritize efficiency of feature development over runtime speed.
 
@@ -78,7 +78,7 @@ This containerization strategy was a steep learning curve for us, for sure. Howe
 
 ## Payments — Not as Easy as You’d Think
 
-Once we’d completed and deployed the first version of _betamax_, we turned our attention to the next major piece for raywenderlich.com — our store. Continuing the same approach of slimming down WordPress, we rolled a new app, _kerching_, following the same Rails–Docker–AWS approach as before.
+Once we’d completed and deployed the first version of _betamax_, we turned our attention to the next major piece for [raywenderlich.com](https://www.raywenderlich.com/) — our store. Continuing the same approach of slimming down WordPress, we rolled a new app, _kerching_, following the same Rails–Docker–AWS approach as before.
 
 One of our goals in redesigning the store was to reduce the friction in the purchase flow. Our previous payment process required over 12 (_12!_) clicks to complete a purchase, and we knew we could do better.
 
@@ -159,10 +159,12 @@ So that brings us to today. While we could rest easy, content in knowing that we
 
 In the short term, we’ve got various user-facing features across the site that we’re working on. Some of these are things that didn’t make it into the v1 launch of _carolus_, others are in direct response to user feedback on v1 of the site.
 
-Further afield, we’ve got infrastructure improvements we’d like to investigate, such as transitioning from running individual servers to using a container deployment service such as [kubernetes](https://kubernetes.io). Naturally this is alongside the other major features, improvements and services we’re working on to improve [raywenderlich.com](https://www.raywenderlich.com/).
+Further afield, we’ve got infrastructure improvements we’d like to investigate, such as transitioning from running individual servers to using a container deployment service such as [kubernetes](https://kubernetes.io). Naturally, this is in parallel with other efforts such as other major features, improvements and services we’re working on to improve [raywenderlich.com](https://www.raywenderlich.com/).
 
 ## Conclusion
 
-It’s at this point in blog posts like this you discover the underlying reason for its existence: _“if this kind of thing interests you, why not come and join us—we’re hiring”_. Sadly we’re not currently quite in that position. We have big plans for the future of the site, and will need to expand the engineering team to achieve them, but that’s coming soon.
+In other blog posts like this, this is the point where you discover the underlying reason for this post’s existence: _“if this kind of thing interests you, why not come and join us? We’re hiring!”_. Sadly, we’re not currently quite in that position. We have big plans for the future of the site, and will need to expand the engineering team to achieve them, but that’s a bit further down the road.
 
-Our engineering team is tiny—Luke is our fantastic designer, Roel a top-notch full-stack developer, and me. I’m really proud of what the team has achieved over a fairly short amount of time, and what we’re looking to accomplish in the future. It’s our aim to make the great content created by the hugely talented team of authors as accessible and enjoyable as possible. I hope you agree that the recent improvements have been a step in the right direction, and that we’ll do this mission justice in the future.
+Our engineering team is tiny: Luke is our fantastic designer; Roel, a top-notch full-stack developer; and me, Sam, who muddles along as best he can. I’m really proud of what our small team has achieved in a fairly short amount of time, and I’m looking forward optimistically to the future of the site.
+
+It’s always been our aim to make the great content created by the hugely talented team of authors as accessible and enjoyable as possible. I hope you agree that the recent improvements have been a step in the right direction, and that we’ll do this mission justice in the future.
