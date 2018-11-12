@@ -24,23 +24,23 @@ How did we do it? Well, funny you should ask; this post is a high-level review o
 
 Ray, who is indeed a real person, despite what the conspiracy theorists might have you believe, started the site nearly 9 years ago as a simple blog. He chose the best platform for starting a blog — WordPress — and that has served up all the content on the site right up until August of this year. The WordPress-powered site has undergone many changes, with custom plugins and functionality built to support the book store, video subscriptions, the tutorial team and more. Still, at its core, it remained WordPress, with all of its good and not-so-good features.
 
-![](assets/img/2018-10-31/how_does_rw_work_01.png)
+![](assets/img/2018-11-12/how_does_rw_work_01.png)
 
-In 2016, our needs as a learning platform had started to push the limits of what blogging software could offer. We knew that to support all the great site features we wanted would mean biting the bullet and stepping away from WordPress. 
+In 2016, our needs as a learning platform had started to push the limits of what blogging software could offer. We knew that to support all the great site features we wanted would mean biting the bullet and stepping away from WordPress.
 
 This presented us with a fairly challenging migration path. Every aspect of the site was fully ingrained within WordPress, so we found a small task to start: the forums.
 
 ## A Two-Year Plan
 
-OK, so it wasn’t planned to be a two-year project, but is any project, really? 
+OK, so it wasn’t planned to be a two-year project, but is any project, really?
 
 Our overarching goal during the first 18 months of effort was always to _“let WordPress do what WordPress is good at”_. WordPress shouldn’t be running our forums, user account system, store, video subscriptions, or other backend support. Instead, we feel the core WordPress platform of the site should be reserved for writing, editing and publishing content.
 
 Removing the forums and user account system was a major piece of work, which was designed to lay down some infrastructure foundations for future work. The forums are now hosted in [discourse](https://discourse.org/), which is not only a world-leading discussion platform, but also one that requires very little overhead from our engineering team. Discourse sits in a Docker container on a server on its own, which requires little more than point-and-click upgrades every now and then. The only custom work we had to do was to build a plugin to support the [raywenderlich.com](https://www.raywenderlich.com/) accounts system.
 
-![](assets/img/2018-10-31/how_does_rw_work_02.png)
+![](assets/img/2018-11-12/how_does_rw_work_02.png)
 
-This first phase was a much bigger undertaking than we expected. At this stage, we didn’t have a dedicated engineering team: it was work that Mic, Brian and I took up alongside our other work of creating books and video content. Combining this with the huge amount of platform research that was required, and the complexity of migrating a fairly complex system, we spent a long time working on this. Longer than we thought we would, for sure.
+This first phase was a much bigger undertaking than we expected. At this stage, we didn’t have a dedicated engineering team: it was work that Mic, Brian and I took up alongside our other work of creating books and video content. Combining this with the huge amount of platform research that was required, and the complexity of migrating a fairly intricate system, we spent a long time working on this. Certainly longer than we thought we would.
 
 But once the forums were taken care of, we needed to decide upon the next step in our WordPress diet plan. The next step was to pull out all video subscriber content into its own service, codenamed _betamax_.
 
@@ -60,7 +60,7 @@ Due to the dockerized way in which we deploy our rails apps, no app contains any
 
 ## Adventures with Docker
 
-If you’ve not heard of [Docker](https://www.docker.com) (a sexy marketing name for the more generic “containerisation” paradigm) then you can think of it as a lightweight virtual machine that essentially allows you to completely codify the OS and dependencies required to run your application, and spin that environment up anywhere. If you have heard of Docker, then you’ll know it is absolutely not a virtual machine, and should not be treated as such. However, I think it is a valuable mental model to consider when exploring the varied uses of Docker.
+If you’ve not heard of [Docker](https://www.docker.com) (a sexy marketing name for the more generic “containerization” paradigm) then you can think of it as a lightweight virtual machine that essentially allows you to completely codify the OS and dependencies required to run your application, and spin that environment up anywhere. If you have heard of Docker, then you’ll know it is absolutely not a virtual machine, and should not be treated as such. However, I think it is a valuable mental model to consider when exploring the varied uses of Docker.
 
 What does this mean for developers? Well, the environment you run the app in on your development machine is identical to the environment in production. And I mean _identical_. Same OS, same libraries, same dependencies. This has several positive side effects:
 
@@ -69,11 +69,11 @@ What does this mean for developers? Well, the environment you run the app in on 
 - It’s trivial to maintain multiple, slightly different environments. Just because we have a legacy app that requires old versions of OS libs, doesn’t mean that all our new apps have to have the same dependencies.
 - Spinning up a new production machine is also really easy. It’s essentially the same process as you would follow to spin up a development machine.
 
-One of the key elements to a successful Docker containerization stragegy is to make your apps as stateless as possible. You can create independent volumes for data storage, but we decided to take the approach of using managed services for our storage requirements within _betamax_. Since we were already using EC2 on AWS as hosting compute power, it was natural to use [RDS](https://aws.amazon.com/rds/) (Relational Database Service) as a managed database solution, [S3](https://aws.amazon.com/s3/) (Simple Storage Servce) for file storage and [ElastiCache](https://aws.amazon.com/elasticache/) for Redis. The priority here is very much to let our engineering team focus on development, and not spend time managing backup rotation and storage for our datastores.
+One of the key elements to a successful Docker containerization strategy is to make your apps as stateless as possible. You can create independent volumes for data storage, but we decided to take the approach of using managed services for our storage requirements within _betamax_. Since we were already using EC2 on AWS as hosting compute power, it was natural to use [RDS](https://aws.amazon.com/rds/) (Relational Database Service) as a managed database solution, [S3](https://aws.amazon.com/s3/) (Simple Storage Service) for file storage and [ElastiCache](https://aws.amazon.com/elasticache/) for Redis. The priority here is very much to let our engineering team focus on development, and not spend time managing backup rotation and storage for our datastores.
 
-This containerization strategy was a steep learning curve for us, for sure. However, the up-front time and effort to get this approach working has paid off many, many times over. I would definitely recommend investigating this approach for any server-side work you are considering.
+This containerization strategy was definitely a steep learning curve for us. However, the up-front time and effort to get this approach working has paid off many, many times over. I would definitely recommend investigating this approach for any server-side work you are considering.
 
-![](assets/img/2018-10-31/how_does_rw_work_03.png)
+![](assets/img/2018-11-12/how_does_rw_work_03.png)
 
 
 ## Payments — Not as Easy as You’d Think
@@ -94,17 +94,17 @@ Fortunately, there are payment providers who can handle the tax side of things f
 
 After doing some cost analysis, and spinning up some technical proofs-of-concept, we settled on our current provider, [Paddle](https://www.paddle.com/). They offer a great checkout flow, and handle all the gnarly international taxation issues for us.
 
-Paddle is based in the UK, which is a huge advantage for our US-based customers, since sales tax in the US in not payable on international transactions. Paddle was also open to importing our existing subscribers from our previous payment provider, involving securely transferring payment details via a standardised process. However, our previous payment provider (FastSpring) was unable or unwilling to facilitate this, which resulted in yet more development and customer-care challenges.
+Paddle is based in the UK, which is a huge advantage for our US-based customers, since sales tax in the US in not payable on international transactions. Paddle was also open to importing our existing subscribers from our previous payment provider, involving securely transferring payment details via a standardized process. However, our previous payment provider (FastSpring) was unable or unwilling to facilitate this, which resulted in yet more development and customer-care challenges.
 
 Instead of building a nice, new payment pipeline, we instead were forced to build two separate pipelines, and provide a simple user flow for users to switch from our old payment provider to the new one by entering their credit card, at a time that suited them. If customers chose not to switch (and over a year later, many users still haven’t chosen to migrate) then their existing subscription would continue on the old payment provider.
 
-![](assets/img/2018-10-31/how_does_rw_work_04.png)
+![](assets/img/2018-11-12/how_does_rw_work_04.png)
 
 Despite the fact that we now had two part-time developers and one designer, these additional complications meant that this, once again, took longer than we hoped. However, once it was finished, our checkout flow was much improved, and we immediately saw an improvement in conversion rate.
 
 ## Bringing Us Up to Date
 
-At this point, WordPress was pretty much just doing what WordPress does best: writing, editing, storing and serving content. We'd also taken the time to dockerize WordPress; we moved both the app and the database over to AWS to relieve us of expensive old hardware and to bring deployment inline with our other products, via our chatbot, Razebot. 
+At this point, WordPress was pretty much just doing what WordPress does best: writing, editing, storing and serving content. We'd also taken the time to dockerize WordPress; we moved both the app and the database over to AWS to relieve us of expensive old hardware and to bring deployment inline with our other products, via our chatbot, Razebot.
 
 Razebot is a [hubot](https://hubot.github.com)-based slackbot that facilitates a range of actions, including managing access to our staging infrastructure, uploading static assets to our CDN and deployment of our web apps.
 
@@ -125,7 +125,7 @@ Much as people might dislike WordPress, it’s perfectly good at content creatio
 
 We knew that the backend of _carolus_ would be written in Rails; not only did we want to stick to the platform decisions we'd already made, but we'd also just employed Roel as a senior Rails engineer, so it'd be odd to switch things up now. Adding Roel to the team took us to a full-time engineering team of three: two full-time developers and a designer.
 
-The frontend, however, was up for grabs. 
+The frontend, however, was up for grabs.
 
 We wanted to vastly improve the user experience as readers searched for and browsed both written and video content. Inevitably, this involved investing in a JavaScript framework. But which one?
 
@@ -145,7 +145,7 @@ This choice gave us the best of both worlds, and along with the first-class supp
 
 The architecture of [raywenderlich.com](https://www.raywenderlich.com/) today can be summarized as follows:
 
-![](assets/img/2018-10-31/how_does_rw_work_05.png)
+![](assets/img/2018-11-12/how_does_rw_work_05.png)
 ￼
 This model continues to use both _betamax_ and WordPress (known as _koenig_ in our handy naming system) as the canonical datastores. Content creators, team leads and editors still use these two systems to create records for the content created, ensuring that the content production workflow requires minimal changes. These two systems maintain their databases of content, handle asset uploads and do everything they’ve always done — apart from presentation. That responsibility is instead transferred to _carolus_.
 
