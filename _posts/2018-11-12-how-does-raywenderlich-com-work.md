@@ -11,7 +11,7 @@ author_image: "sam-davies@2x.png"
 color: "#283962"
 image: "/assets/img/pattern-3@2x.png"
 category: "storytime"
-excerpt: "Discover the history of the tech stack behind your favourite tutorials site!"
+excerpt: "Discover the history of the tech stack behind raywenderlich.com, the world's best tutorials site!"
 ---
 
 If you’re a regular visitor to [raywenderlich.com](https://www.raywenderlich.com), you may have noticed that the site relaunched with a major facelift earlier this year. The goal of this facelift was to make content easier to find, to offer a more pleasant experience when reading articles and watching videos, and to give Android the rightful home that it deserved. We’re still working hard on this mission, with new features like bookmarking, improved search and email management on their way.
@@ -88,7 +88,7 @@ It turns out that online purchasing is bit more complex than just taking your cu
 
 One upside, I suppose, is that I learned far more than I ever wanted to know about VAT and sales taxes, before I concluded that managing tax requirements ourselves was simply asking for trouble. This would have not only added a huge development overhead (plus ongoing maintenance), but also added additional challenges from an accountancy perspective.
 
-That struck my favourite option from the list. _Arrivederci_, Stripe.
+That struck my preferred option from the list. _Arrivederci_, Stripe.
 
 Fortunately, there are payment providers who can handle the tax side of things for you, by acting as a reseller. This also meant that we vastly reduced the number of providers available to us — to three.
 
