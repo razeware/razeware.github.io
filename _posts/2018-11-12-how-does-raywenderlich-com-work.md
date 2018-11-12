@@ -3,7 +3,7 @@ layout: post
 logo: "--white"
 header_style: "c-header--white"
 title: "How does raywenderlich.com work?"
-date: "Oct 31, 2018"
+date: "Nov 12, 2018"
 author: "Sam Davies"
 author_role: "CTO Razeware"
 author_bio: "Writing code, solving problems and entertaining the masses"
