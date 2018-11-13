@@ -3,89 +3,93 @@
    ========================================================================== */
 
 section.c-post-hero{
-    min-height: 100vh;
-    height: auto;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 
-    @include breakpoint("mobile-large"){
-        padding: 120px 0;
-    }
-}   
+  @include breakpoint("mobile-large") {
+    padding: 120px 0;
+  }
+}
 
 div.c-post-hero-wrapper{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    max-width: 1280px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
 
-    @include breakpoint("mobile-large"){
-        grid-template-columns: 1fr;
-    }
+  @include breakpoint("mobile-large") {
+    grid-template-columns: 1fr;
+  }
 }
 
 .c-post-hero__image{
-    @extend %a-scale-in;
+  @extend %a-scale-in;
 
-    @include breakpoint("mobile-large"){
-        display: none;
-    }
+  @include breakpoint("mobile-large") {
+    display: none;
+  }
 }
 
 section.c-post-hero h1{
-    font-size: 60px;
-    line-height: 1.125;
-    color: white;
-    position: relative;
-    @extend %a-fade-in-up;
+  font-size: 60px;
+  line-height: 1.125;
+  color: white;
+  position: relative;
+  @extend %a-fade-in-up;
+  word-break: break-word;
 
-    @include breakpoint("mobile-large"){
-        font-size: 42px;
-    }
+  @include breakpoint("desktop") {
+    word-break: normal;
+  }
 
+  @include breakpoint("mobile-large") {
+    font-size: 42px;
+  }
 }
 
 section.c-post-hero h1 > span{
-    position: absolute;
-    left: -40px;
-    top: -40px;
-    font-size: 120px;
-    opacity: .1;
-    text-transform: uppercase;
+  position: absolute;
+  left: -40px;
+  top: -40px;
+  font-size: 120px;
+  opacity: .1;
+  text-transform: uppercase;
 }
 
 .c-post-hero-quote{
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 21px;
-    font-style: italic;
-    line-height: 1.5;
-    color: white;
-    margin-top: 36px;
-    position: relative;
-    @extend %a-fade-in-up;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 21px;
+  font-style: italic;
+  line-height: 1.5;
+  color: white;
+  margin-top: 36px;
+  position: relative;
+  @extend %a-fade-in-up;
 
-     @include breakpoint("mobile-large"){
-        font-size: 18px;
-     }
+  @include breakpoint("mobile-large") {
+    font-size: 18px;
+  }
 
 }
 
 .c-post-hero-quote::before{
-    content: "";
-    position: absolute;
-    top: 15px;
-    left: -9890px;
-    width: 10000px;
-    height: 3px;
-    background-color: white;
-    opacity: .3;
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: -9890px;
+  width: 10000px;
+  height: 3px;
+  background-color: white;
+  opacity: .3;
 }
 
 section.c-post-hero img{
-    width: 100%;
-    max-width: 500px;
+  width: 100%;
+  max-width: 500px;
 }
 
 /* ==========================================================================
@@ -93,53 +97,53 @@ section.c-post-hero img{
    ========================================================================== */
 
 main.c-post{
-    max-width: 945px;
-    margin: 0 auto;
-    position: relative;
+  max-width: 945px;
+  margin: 0 auto;
+  position: relative;
 }
 
 div.c-post-wrapper{
-    max-width: 705px;
-    padding: 60px 0;
-    position: relative;
+  max-width: 705px;
+  padding: 60px 0;
+  position: relative;
 
-    @include breakpoint("mobile-large"){
-        padding: 30px 0;
-    }
+  @include breakpoint("mobile-large") {
+    padding: 30px 0;
+  }
 }
 
 .c-post-meta{
-    display: block;
-    color: white;
-    font-size: 15px;
-    font-weight: 600;
-    position: absolute;
-    top: -80px;
-    @extend %a-fade-in-up;
+  display: block;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  position: absolute;
+  top: -80px;
+  @extend %a-fade-in-up;
 }
 
 div.c-post-wrapper a{
-    color: var(--black);
-    text-decoration: none;
-    border-bottom: 4px solid #B4E7F8;
+  color: var(--black);
+  text-decoration: none;
+  border-bottom: 4px solid #B4E7F8;
 
-    &:hover{
-        background: #B4E7F8;
-    }
+  &:hover{
+    background: #B4E7F8;
+  }
 
 }
 
 div.c-post-wrapper p, div.c-post-wrapper ul, div.c-post-wrapper ol{
-    margin-top: 24px;
+  margin-top: 24px;
 }
 
 div.c-post-wrapper > p{
-    font-size: 20px;
-    line-height: 1.6;
+  font-size: 20px;
+  line-height: 1.6;
 
-    @include breakpoint("mobile-large"){
-        font-size: 17px;
-    }
+  @include breakpoint("mobile-large") {
+    font-size: 17px;
+  }
 
 }
 
@@ -155,298 +159,289 @@ div.c-post-wrapper > p:first-child:first-letter{
 }
 
 div.c-post-wrapper > p:first-child{
-    margin-top: 0;
+  margin-top: 0;
 }
 
 div.c-post-wrapper h2, h3, h4, h5{
-    margin-top: 30px;
-    margin-bottom: -12px;
+  margin-top: 30px;
+  margin-bottom: -12px;
 }
 
 div.c-post-wrapper h2{
-    font-size: 36px;
-    line-height: 1.25;
+  font-size: 36px;
+  line-height: 1.25;
 
-    @include breakpoint("mobile-large"){
-        font-size: 30px;
-    }
+  @include breakpoint("mobile-large") {
+    font-size: 30px;
+  }
 
 }
 
 div.c-post-wrapper h3{
-    font-size: 30px;
+  font-size: 30px;
 
-    @include breakpoint("mobile-large"){
-        font-size: 24px;
-    }
+  @include breakpoint("mobile-large") {
+    font-size: 24px;
+  }
 }
 
 div.c-post-wrapper h4{
-    font-size: 24px;
+  font-size: 24px;
 
-    @include breakpoint("mobile-large"){
-        font-size: 21px;
-    }
+  @include breakpoint("mobile-large") {
+    font-size: 21px;
+  }
 }
 
 div.c-post-wrapper h5{
-    font-size: 21px;
+  font-size: 21px;
 
-    @include breakpoint("mobile-large"){
-        font-size: 18px;
-    }
+  @include breakpoint("mobile-large") {
+    font-size: 18px;
+  }
 }
 
 div.c-post-wrapper ol li, div.c-post-wrapper ul li{
-    font-size: 20px;
-    line-height: 1.45;
-    margin-bottom: 15px; 
+  font-size: 20px;
+  line-height: 1.45;
+  margin-bottom: 15px; 
 
-    @include breakpoint("mobile-large"){
-        font-size: 17px;
-    }
+  @include breakpoint("mobile-large") {
+    font-size: 17px;
+  }
 }
 
 div.c-post-wrapper ul, ol{
-    margin-bottom: 42px;
+  margin-bottom: 42px;
 }
 
 div.c-post-wrapper ul{
-    list-style-type: square;
-    padding-left: 24px;
+  list-style-type: square;
+  padding-left: 24px;
 }
 
 div.c-post-wrapper code{
-    font-size: 18px;
-    background: rgba(0,0,0,.05);
-    padding: 3px 4px;
-    margin: 0 2px;
+  font-size: 18px;
+  background: rgba(0,0,0,.05);
+  padding: 3px 4px;
+  margin: 0 2px;
 
-    @include breakpoint("mobile-large"){
-        font-size: 15px;
-    }
-
-}    
+  @include breakpoint("mobile-large") {
+    font-size: 15px;
+  }
+}
 
 div.c-post-wrapper pre{
-    margin-top: 30px;
+  margin-top: 30px;
 
-    code{
-        display: block;
-        padding: 25px 25px 25px 30px;
-        border-radius: 4px;
-        box-shadow: inset 0 0 0 1px #eee;
-        background: none;
-        overflow: hidden;
-        overflow-x: auto;
-    }
+  code{
+    display: block;
+    padding: 25px 25px 25px 30px;
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 1px #eee;
+    background: none;
+    overflow: hidden;
+    overflow-x: auto;
+  }
 
 }
 
 div.c-post-wrapper blockquote{
-    font-size: 20px;
-    font-style: italic;
-    line-height: 1.6;
-    margin-top: 24px;
-    padding:0 20px;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.6;
+  margin-top: 24px;
+  padding:0 20px;
 
-    @include breakpoint("mobile-large"){
-        font-size: 17px;
-    }
+  @include breakpoint("mobile-large") {
+    font-size: 17px;
+  }
 
+  p{
+    display: inline;
+    background-color: #f1f1f1;
+  }
+
+  blockquote{
+    margin-top: -10px !important;
     p{
-        display: inline;
-        background-color: #f1f1f1;
+      font-size: 18px;
+      font-style: normal;
+      background-color: white;
     }
-
-    blockquote{
-        margin-top: -10px !important;
-        p{
-            font-size: 18px;
-            font-style: normal;
-            background-color: white;
-        }
-    }
-
+  }
 }
 
 div.c-post-wrapper img{
-    max-width: 100%;
-    margin: 0 auto;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 /* ==========================================================================
-   Post - More Like This
-   ========================================================================== */
+ Post - More Like This
+ ========================================================================== */
 
-section.c-more-like-this{
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+ section.c-more-like-this{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 
-    @include breakpoint("mobile-large"){
-        grid-template-columns: 1fr;
-    }
-
+  @include breakpoint("mobile-large") {
+    grid-template-columns: 1fr;
+  }
 }
 
 section.c-more-like-this > a {
-    display: flex;
-    text-decoration: none;
+  display: flex;
+  text-decoration: none;
 
-    &:hover .c-more-like-this-post-artwork{
-        transform: scale(1.05);
-    }
-
-}   
+  &:hover .c-more-like-this-post-artwork{
+    transform: scale(1.05);
+  }
+}
 
 div.c-more-like-this-post{
-    overflow: hidden;
-    padding: 70px 100px;
-    position: relative;
+  overflow: hidden;
+  padding: 70px 100px;
+  position: relative;
 
-    @include breakpoint("mobile-large"){
-        padding: 70px 60px;
-    }
-
+  @include breakpoint("mobile-large") {
+    padding: 70px 60px;
+  }
 }
 
 div.c-more-like-this-post > span{
-    font-size: 15px;
-    font-weight: 600;
-    color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
 }
 
 div.c-more-like-this-post h3{
-    position: relative;
-    z-index: 1;
-    font-size: 42px;
-    line-height: 1.125;
-    color: #ffffff;
-    margin-top: 10px;
+  position: relative;
+  z-index: 1;
+  font-size: 42px;
+  line-height: 1.125;
+  color: #ffffff;
+  margin-top: 10px;
 
-    @include breakpoint("mobile-large"){
-        font-size: 36px;
-    }
+  @include breakpoint("mobile-large") {
+    font-size: 36px;
+  }
 }
 
 div.c-more-like-this-post h3 > span{
-    position: absolute;
-    left: -30px;
-    top: -30px;
-    font-size: 90px;
-    opacity: .1;
-    text-transform: uppercase;
+  position: absolute;
+  left: -30px;
+  top: -30px;
+  font-size: 90px;
+  opacity: .1;
+  text-transform: uppercase;
 }
 
 div.c-more-like-this-post-artwork{
-    width: 400px;
-    position: absolute;
-    z-index: 0;
-    left: 50%;
-    bottom: -380px;
-    margin-left: -200px;
-    transition: all .25s linear;
+  width: 400px;
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  bottom: -380px;
+  margin-left: -200px;
+  transition: all .25s linear;
 }
 
-div.c-more-like-this-post-artwork img{
-    width: 100%;
+div.c-more-like-this-post-artwork img {
+  width: 100%;
 }
 
 /* ==========================================================================
-   Author
-   ========================================================================== */
+ Author
+ ========================================================================== */
 
-div.c-written-by{
-    position: relative;
-    margin-top: 60px;
-    margin-bottom: 120px;
-    padding-left: 90px;
+ div.c-written-by{
+  position: relative;
+  margin-top: 60px;
+  margin-bottom: 120px;
+  padding-left: 90px;
 
-    @include breakpoint("mobile-large"){
-      margin-top: 30px;
-      margin-bottom: 60px;
+  @include breakpoint("mobile-large") {
+    margin-top: 30px;
+    margin-bottom: 60px;
+  }
+
+  .c-written-by__image-wrapper{
+    position: absolute;
+    top: 0;
+    left: 24px;
+    width: 48px;
+    height: 48px;
+
+    @include breakpoint("mobile-large") {
+      width: 36px;
+      height: 36px;
     }
 
-    .c-written-by__image-wrapper{
+    &:before{
+      content: "";
       position: absolute;
       top: 0;
-      left: 24px;
+      left: -24px;
       width: 48px;
       height: 48px;
+      background: #D8D8D8;
+      opacity: .5;
+      z-index: -1;
+      transform: rotate(45deg);
 
-      @include breakpoint("mobile-large"){
+      @include breakpoint("mobile-large") {
         width: 36px;
         height: 36px;
       }
 
-      &:before{
-        content: "";
+    }
+
+    .c-written-by__image{
+      width: 48px;
+      height: 48px;
+      transform: rotate(45deg);
+      overflow: hidden;
+
+      @include breakpoint("mobile-large") {
+        width: 36px;
+        height: 36px;
+      }
+
+      img{
+        width: 70px;
+        transform: rotate(-45deg);
         position: absolute;
-        top: 0;
-        left: -24px;
-        width: 48px;
-        height: 48px;
-        background: #D8D8D8;
-        opacity: .5;
-        z-index: -1;
-        transform: rotate(45deg);
+        top: 50%;
+        left: 50%;
+        margin-top: -35px;
+        margin-left: -35px;
 
-        @include breakpoint("mobile-large"){
-          width: 36px;
-          height: 36px;
+        @include breakpoint("mobile-large") {
+          width: 60px;
+          margin-top: -30px;
+          margin-left: -30px;
         }
-
       }
-
-      .c-written-by__image{
-        width: 48px;
-        height: 48px;
-        transform: rotate(45deg);
-        overflow: hidden;
-
-        @include breakpoint("mobile-large"){
-          width: 36px;
-          height: 36px;
-        }
-
-        img{
-          width: 70px;
-          transform: rotate(-45deg);
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          margin-top: -35px;
-          margin-left: -35px;
-
-          @include breakpoint("mobile-large"){
-            width: 60px;
-            margin-top: -30px;
-            margin-left: -30px;
-          }
-
-        } 
-      }
-
     }
+  }
 
-    .c-written-by__title{
-      font-size: 17px;
-      font-weight: 600;
+  .c-written-by__title{
+    font-size: 17px;
+    font-weight: 600;
 
-      @include breakpoint("mobile-large"){
-        font-size: 16px;
-      }
-
-    }
-
-    .c-written-by__description{
+    @include breakpoint("mobile-large") {
       font-size: 16px;
-      margin-top: 6px;
-
-      @include breakpoint("mobile-large"){
-        font-size: 15px;
-      }
     }
+  }
 
-}   
+  .c-written-by__description{
+    font-size: 16px;
+    margin-top: 6px;
+
+    @include breakpoint("mobile-large") {
+      font-size: 15px;
+    }
+  }
+}
