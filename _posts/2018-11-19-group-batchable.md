@@ -194,9 +194,11 @@ Now you’ve skimmed all that, it’s only fair that I answer the question: _“
 
 ![](assets/img/2018-11-19/groupbatchable_07.png)
 
-- Approximately 1/3 of users with interests have selected more than one.
+- Approximately 1/3 of users with interests have selected more than one domain.
 - Of those with more than one interest, approximately 70% have selected both iOS and Android.
 
 
 This same approach can be used to determine other interesting relationships as well, and is easily adapted to work on any ActiveRecord _‘has-and-belongs-to-many’_-style relationship, irrespective of the number of tables required to make the join. For example, we can run a similar analysis on the model we use to allow users to track their progress through content — they’ve said they like two domains, but do they actually watch videos from both sides of the fence?
+
+Hopefully you’ll find `GroupBatchable` useful in your own code. Say hi on [twitter](https://twitter.com/iwantmyrealname) to let me know if you do, or if you have any questions.
 
