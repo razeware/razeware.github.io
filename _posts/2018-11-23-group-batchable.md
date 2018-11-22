@@ -3,7 +3,7 @@ layout: post
 logo: "--white"
 header_style: "c-header--white"
 title: "Do people actually like both iOS and Android?"
-date: "Nov 16, 2018"
+date: "Nov 23, 2018"
 author: "Sam Davies"
 author_role: "CTO Razeware"
 author_bio: "Writing code, solving problems and entertaining the masses"
@@ -16,18 +16,18 @@ excerpt: "Efficiently identifying common combinations through a ‘has and belon
 
 In object-relational data modelling, the _‘has-and-belongs-to-many’_ paradigm is very common. For example if you were modelling posts and categories, you might say that a post can have multiple categories, and each category can be used for more than one post.
 
-![](assets/img/2018-11-19/groupbatchable_01.png)
+![](assets/img/2018-11-23/groupbatchable_01.png)
 
 A common approach to creating this relationship in a database is to use a join table.
 
 
-![](assets/img/2018-11-19/groupbatchable_02.png)
+![](assets/img/2018-11-23/groupbatchable_02.png)
 
 
 In _[carolus](/how-does-raywenderlich-com-work)_, the Ruby on Rails app that runs [raywenderlich.com](https://www.raywenderlich.com), content is categorized into one of several “domains”, currently [iOS](https://www.raywenderlich.com/ios), [Android](https://www.raywenderlich.com/android), [Unity](https://www.raywenderlich.com/unity) and [Unreal Engine](https://www.raywenderlich.com/unreal-engine). Users have the ability to _follow_ a domain, thereby personalizing the content they see on their homepage. This is a classic example of _‘has-and-belongs-to-many’_ modelling, with the following structure:
 
 
-![](assets/img/2018-11-19/groupbatchable_03.png)
+![](assets/img/2018-11-23/groupbatchable_03.png)
 
 
 This feature has been available for long enough that lots of people now follow their chosen domains, and I was interested in the answer to the following question:
@@ -47,11 +47,9 @@ First let’s enumerate each of the possible domain combinations and create a ha
 
 ```ruby
 ids = Domain.pluck(:id)
-combinations =
-  (0..ids.length).flat_map { |l| ids.combination(l).to_a }
-                 .map { |c| Set.new(c) }
-domain_combination_counts =
-  combinations.map { |combination| [combination, 0] }.to_h
+combinations = (0..ids.length).flat_map { |l| ids.combination(l).to_a }
+                              .map { |c| Set.new(c) }
+domain_combination_counts = combinations.map { |combination| [combination, 0] }.to_h
 ```
 
 This uses the `#combination` method on `Array` to generate every possible combination of the domain ids, converting it into a `Set`. Then it creates a `Hash` with each value being one of the domain combinations, and the value being the count of users that have selected the equivalent set of interests.
@@ -103,7 +101,7 @@ However, why are we instantiating `User` objects anyway? We don’t care about t
 
 The `interests` table is the join table between `users` and `domains`, and as such has `user_id` and `domain_id` fields. We’re interested in which domains each user is interested in, and as such all the information we need is provided in this single table.
 
-![](assets/img/2018-11-19/groupbatchable_04.png)
+![](assets/img/2018-11-23/groupbatchable_04.png)
 
 We want a list of domains for each user, i.e. a list of the `domain_id`s grouped by `user_id`:
 
@@ -118,7 +116,7 @@ end
 
 The `#group` method in ActiveRecord is underpinned by the SQL `GROUP BY` method and tells the database that each result row should represent all the records for that single, unique `user_id`. Then the `select` method uses some SQL to combine all the rows for the given user into an array.
 
-![](assets/img/2018-11-19/groupbatchable_05.png)
+![](assets/img/2018-11-23/groupbatchable_05.png)
 
 > __Note:__ The `array_agg()` method is available in PostgreSQL, but might not be in other databases. It’s one of the aggregate methods available when using `GROUP BY`.
 
@@ -134,7 +132,7 @@ When we solved this problem before, we switched to batching up result sets — d
 
 The problem is that batching in Rails is predicated on using the primary key to select batches. Results are sorted and then selected based on this key. This will not work with results that are grouped — you need to ensure that all the rows for a given group appear in the same batch of results, otherwise the aggregate value will be incorrect.
 
-![](assets/img/2018-11-19/groupbatchable_06.png)
+![](assets/img/2018-11-23/groupbatchable_06.png)
 
 However, we can take the spirit of batching, and instead batch on the field we are grouping on, in this case the `user_id`. To do this, we create a concern on a model:
 
@@ -192,7 +190,7 @@ It’s also significantly faster. Solving a similar problem to this (with a more
 
 Now you’ve skimmed all that, it’s only fair that I answer the question: _“Does anybody actually like iOS and Android?”_
 
-![](assets/img/2018-11-19/groupbatchable_07.png)
+![](assets/img/2018-11-23/groupbatchable_07.png)
 
 - Approximately 1/3 of users with interests have selected more than one domain.
 - Of those with more than one interest, approximately 70% have selected both iOS and Android.
