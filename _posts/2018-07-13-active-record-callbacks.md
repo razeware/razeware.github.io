@@ -9,7 +9,7 @@ author_role: "Fullstack Developer Razeware"
 author_bio: "Interests: Ruby on Rails, games, and basketball."
 author_image: "roel-bondoc@2x.jpeg"
 color: "#2A2E43"
-image: "/assets/img/pattern-2.png"
+image: "/assets/img/pattern-2@2x.png"
 category: "development"
 excerpt: "Consider these techniques to avoid common callback pitfalls."
 ---
