@@ -2,8 +2,8 @@
 layout: post
 logo: "--white"
 header_style: "c-header--white"
-title: "Pub-Sub Messaging Made Easy"
-date: "Nov 26, 2018"
+title: "Working With Pub-Sub Messaging"
+date: "Dec 14, 2018"
 author: "Roel Bondoc"
 author_role: "Fullstack Developer Razeware"
 author_bio: "Interests: Ruby on Rails, games, and basketball."
@@ -11,7 +11,7 @@ author_image: "roel-bondoc@2x.jpeg"
 color: "#2A2E43"
 image: "/assets/img/pattern-2@2x.png"
 category: "development"
-excerpt: "Some useful tidbits when implementing pub-sub messaging."
+excerpt: "Helpful tips when integrating pub-sub messaging systems."
 ---
 
 Razeware utilizes a tech stack comprised of multiple Ruby on Rails services to power the [raywenderlich.com](https://www.raywenderlich.com) website experience. This architecture pattern is a useful technique in building websites. Allowing you to separate concerns into their own service with the benefit of being able to independently build, scale, and deploy them individually. Because of this separation, there may be a need where your services still need to communicate with each other. One way to achieve this is through a pattern called PubSub messaging.
