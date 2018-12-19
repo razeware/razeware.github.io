@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<section class="c-post-hero" style="background:{{ page.color }};">
+<section class="c-post-hero {{ page.hero }}" style="background:{{ page.color }};">
     <div class="c-post-hero-wrapper l-padding--60">
         <div>
             <h1>{{ page.title | escape }}<span>{{ page.category }}</span></h1>
@@ -15,7 +15,7 @@ layout: default
 </section>
 
 <main class="c-post l-padding--mobile">
-  <span class="c-post-meta">[ {{ page.date | date: '%B %d, %Y' }} · {{ page.author }} ]</span>
+  <span class="c-post-meta {{ page.hero }}">[ {{ page.date | date: '%B %d, %Y' }} · {{ page.author }} ]</span>
   <div class="c-post-wrapper markdown-body">
     {{ content }}
   </div>  

@@ -1,15 +1,16 @@
 ---
 layout: post
 logo: "--white"
-header_style: "c-header--white"
+header_style: "c-header--black"
 title: "Working With Pub-Sub Messaging"
 date: "Dec 14, 2018"
 author: "Roel Bondoc"
 author_role: "Fullstack Developer Razeware"
 author_bio: "Interests: Ruby on Rails, games, and basketball."
 author_image: "roel-bondoc@2x.jpeg"
-color: "#2A2E43"
-image: "/assets/img/pattern-2@2x.png"
+color: "#ffcb32"
+hero: "c-post-hero--dark"
+image: "/assets/img/pattern-5@2x.png"
 category: "development"
 excerpt: "Helpful tips when integrating pub-sub messaging systems."
 ---
