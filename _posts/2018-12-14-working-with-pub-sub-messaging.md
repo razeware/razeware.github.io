@@ -10,7 +10,7 @@ author_bio: "Interests: Ruby on Rails, games, and basketball."
 author_image: "roel-bondoc@2x.jpeg"
 color: "#ffcb32"
 hero: "c-post-hero--dark"
-image: "/assets/img/pattern-5@2x.png"
+image: "/assets/img/pattern-6@2x.png"
 category: "development"
 excerpt: "Helpful tips when integrating pub/sub messaging systems."
 ---
