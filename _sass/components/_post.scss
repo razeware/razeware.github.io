@@ -14,6 +14,21 @@ section.c-post-hero{
   }
 }
 
+.c-post-hero--dark{
+
+  color: #333333 !important;
+
+  h1, .c-post-hero-quote{
+    color: #333333 !important;
+  }
+
+  .c-post-hero-quote::before{
+    background-color: #333333;
+    opacity: .1;
+  }
+
+}
+
 div.c-post-hero-wrapper{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -93,8 +108,8 @@ section.c-post-hero img{
 }
 
 /* ==========================================================================
-   Post - Content
-   ========================================================================== */
+Post - Content
+========================================================================== */
 
 main.c-post{
   max-width: 945px;
