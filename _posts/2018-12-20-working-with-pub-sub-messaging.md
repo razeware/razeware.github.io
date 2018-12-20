@@ -3,7 +3,7 @@ layout: post
 logo: "--white"
 header_style: "c-header--black"
 title: "Working With Pub/Sub Messaging"
-date: "Dec 14, 2018"
+date: "Dec 20, 2018"
 author: "Roel Bondoc"
 author_role: "Fullstack Developer Razeware"
 author_bio: "Interests: Ruby on Rails, games, and basketball."
@@ -12,7 +12,7 @@ color: "#ffcb32"
 hero: "c-post-hero--dark"
 image: "/assets/img/pattern-6@2x.png"
 category: "development"
-excerpt: "Helpful tips when integrating pub/sub messaging systems."
+excerpt: "How we improved our pub/sub implementation for easier maintenance and better performance."
 ---
 
 Our site, raywenderlich.com, utilizes a tech stack comprised of multiple Ruby on Rails services to power the [raywenderlich.com](https://www.raywenderlich.com) website experience. This architecture pattern is a useful technique in building websites. It allows you to separate concerns into their own service with the benefit of being able to independently build, scale and deploy them individually. Because of this separation, there may be a need in which your services still need to communicate with each other. One way to achieve this is through a pattern called the publish-subscribe pattern, referred to as pub/sub messaging.
@@ -21,7 +21,7 @@ Our site, raywenderlich.com, utilizes a tech stack comprised of multiple Ruby on
 
 Pub/sub messaging is the act of one service publishing data to a shared service, often called a **message bus**. A subscriber maintains a connection to this shared message bus, which will eventually receive published messages. In systems with a heavily utilized message bus, it is not uncommon to have multiple publishers publishing to multiple channels to be received by multiple subscribers. Although there are many different implementations available, our site uses Amazon SNS.
 
-### One, Two, Four, Three, Six
+### Dropped or out of order messages
 
 In the [raywenderlich.com](https://www.raywenderlich.com) tech stack, we have a separate service that manages our store, *kerching*, and another service that manages our video content, *betamax*. From a high-level perspective, *kerching* knows which users have bought which video product. This, in turn, requires *betamax* to know which user has access to a video when requested. 
 
@@ -41,7 +41,7 @@ We achieved this by limiting the amount of information sent in a message to just
 
 With this new setup, it doesn't matter what information or in what order *betamax* receives a message. The end result will always be the same. Fortunately, *betamax* and *kerching* have a sizeable amount of traffic that can handle a few more API calls without having to scale unnecessarily. This change not only decreased the amount of issues we received, but also made it far easier to debug when issues did arise.
 
-### Leave your message and go!
+### Defer and delegate further processing
 
 The newest part of our tech stack is our content aggregation service, *carolus*. This is the main part of the website our visitors see daily. 
 
