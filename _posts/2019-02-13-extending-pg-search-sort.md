@@ -15,14 +15,21 @@ category: "development"
 excerpt: "Adjusting the sort capabilities pg_search to provide better search results."
 ---
 
-PostgreSQL comes out of the box with fantastic full text search capabilities. With a very robust feature set, it’s a popular option to implement search without having to use an external appliance like Elasticsearch or Solar. PostgreSQL is also the database behind [raywenderlich.com](https://www.raywenderlich.com/). Naturally it made sense to explore these features to build our very own [search page](https://www.raywenderlich.com/library). Fortunately there is a nice gem called [pg_search](https://github.com/Casecommons/pg_search) that leverages the search features in PostgreSQL and easily integrate them into a Rails app. It’s fairly simple to implement, once you’ve added it to your `Gemfile`, you can add full text search by including the module and calling the appropriate class methods. The gem gives a very intuitive API that lets you take advantage of many of PostgreSQL’s search features.
+PostgreSQL comes out of the box with fantastic full text-search capabilities. With a very robust feature set, it’s a popular option to implement search without having to use an external appliance like Elasticsearch or Solar. 
+
+PostgreSQL is also the database behind [raywenderlich.com](https://www.raywenderlich.com/). Naturally, it made sense to explore its features to build our very own [search page](https://www.raywenderlich.com/library). Fortunately, there is a nice gem called [pg_search](https://github.com/Casecommons/pg_search) that leverages the search features in PostgreSQL and easily integrate them into a Rails app. It’s fairly simple to implement: Once you’ve added it to your `Gemfile`, you can add full text search by including the module and calling the appropriate class methods. 
+
+The gem gives a very intuitive API that lets you take advantage of many of PostgreSQL’s search features. [Author: TODO: Need a line of introduction into this code.]
 ```
 class Content < ApplicationRecord
   include PgSearch
   pg_search_scope :search, against: :name
 end
 ```
-This gives you the ability to query results and sort them by a rank value. The rank value is a number based on how relevant each record is to your search term. The more relevant your record is, the higher the rank value should be. You can even set weights for multiple fields, allowing certain fields to be more important to the rank than others.
+
+[Author: TODO: What is "this" below? Is it the code above? Or pg_search? Or...? If it is "The code above..." then you don't need a line of transition out of the code. Otherwise, you need a line to let the reader know what they are looking at. "The code above x and y..." Shows something, but what? ]
+This gives you the ability to query results and sort them by a rank value. The rank value is a number based on how relevant each record is to your search term. The more relevant your record is, the higher the rank value should be. You can even set weights for multiple fields, allowing certain fields to be more important to the rank than others. [Author: TODO: Need a line of transition into this code. Is it demonstrating how you can set weights for multiple fields? If so, just something simple like, "You can see such weighting in action here:" or something like that. ]
+
 ```
 class Content < ApplicationRecord
   include PgSearch
@@ -34,7 +41,12 @@ class Content < ApplicationRecord
                   }
 end
 ```
-This was the basis of the first iteration of our search page. However, we were quick to realize some searches were not returning optimal results. I found that some results were getting ranked higher even if the search term was not in the `name` field. By default `pg_search` sorts results by a rank result of all the queried columns combined as a single value.  For some records, the lower ranked columns affected the rank value too much and the results did not appear intuitive.
+
+[Author: TODO: What is "This" in the next paragraph? The code above?]
+This was the basis of the first iteration of the raywenderlich.com search page. However, we were quick to realize that some searches were not returning optimal results. For example... [Author: TODO: Can you give a concrete example (even if it is just made up) to help ground these abstract concepts and anchor them to our website? Will help *show* the problem and not just tell the problem. What do you think users were actually expecting compared with what they were getting? You can see the transition in the next paragraph I've written to get you out of the example.]
+
+The example here shows how some results were getting ranked higher even if the search term was not in the `name` field. By default, `pg_search` sorts results by a rank result of all the queried columns combined as a single value. For some records, the lower ranked columns affected the rank value too much and the results did not appear intuitive:
+
 ```
 irb:> Content.search('firebase').limit(5).map(&:name)
 Firebase Tutorial for Android: Getting Started
@@ -43,7 +55,8 @@ Image Recognition With ML Kit  # <== no firebase term
 Firebase Tutorial: Getting Started
 Firebase Tutorial: Real-time Chat
 ```
-Although the gem was working exactly as advertised, we wanted to fine-tune the result set a bit more to our liking. In order to do that I started off by looking at how the SQL queries were constructed.
+Although the gem was working exactly as advertised, we wanted to fine tune the result set a bit more to our liking. In order to do that, I started by looking at how the SQL queries were constructed:
+
 ```
 SELECT "contents".* FROM "contents" INNER JOIN
 (SELECT "contents"."id" AS pg_search_id,
@@ -64,7 +77,7 @@ SELECT "contents".* FROM "contents" INNER JOIN
 ON "contents"."id" = pg_search_d1b2a59fbea7e20077af9f.pg_search_id
 ORDER BY pg_search_d1b2a59fbea7e20077af9f.rank DESC, "contents"."id" ASC
 ```
-The entire result set is ordered by a `rank` value. What we needed was to be able to sort on the presence of the search term first of each column and then rank. The PostgreSQL `@@` search operator returns a boolean value that we can use just for this purpose.
+As you can see, the entire result set is ordered by a `rank` value. What we needed, instead, was to be able to sort on the presence of the search term first of each column and then rank. The PostgreSQL `@@` search operator returns a boolean value that we can use just for this purpose.
 ```
 db=# SELECT to_tsvector('simple', 'The quick brown fox.') @@ to_tsquery('simple', 'fox');
  ?column?
@@ -78,7 +91,9 @@ db=# SELECT to_tsvector('simple', 'The quick brown fox.') @@ to_tsquery('simple'
  f
 (1 row)
 ```
-By applying this concept to our search SQL query, we can sort the results a bit better. Since there is no easy to extend functionality on the `pg_search` gem we had to monkey patch the necessary modules in an initializer. Monkey patching, allowed us to get changes out quicker and get feedback sooner. I added a class method `.with_pg_search_ordering`. When called, produced the extra SQL similar to this:
+By applying this concept to our search SQL query, we can sort the results a bit better. 
+
+Since there is no easy-to-extend functionality on the `pg_search` gem, we had to monkey patch the necessary modules in an initializer. Monkey patching allowed us to get changes out quicker and get feedback sooner. To monkey patch, I added a class method `.with_pg_search_ordering`. When called, XXX produced the extra SQL similar to this: [Author: TODO: Fill in "xxx" - what produced the extra SQL?]
 ```
 SELECT
 
@@ -105,6 +120,8 @@ Firebase Tutorial: Real-time Chat
 Firebase Remote Config Tutorial for iOS
 Firebase Remote Config Tutorial for iOS
 ```
-As you can expect, from the visitors’ perspective, the results appear more relevant and helpful. Using the `pg_search` gem is great to get your search up and running quickly, but don’t be afraid to dive deeper into what PostgreSQL search can do for you. I recommend checking out [Rach Belaid’s post](http://rachbelaid.com/postgres-full-text-search-is-good-enough/) for a more in-depth analysis of these features and how they work. The article really helped me to understand what was going on with our search and how to improve it.
+As you can expect, from the visitors’ perspective, the results appear more relevant and helpful. 
 
-If you want to see what changes were necessary to accomplish this feel free to head on over to [my fork](https://github.com/roelbondoc/pg_search) of the `pg_search` gem. It’s still a work in progress and will need some test coverage. If there are others out there with an interest in such a feature I could open a PR to merge it back upstream to the main repo. Hit me up on GitHub or on Twitter if you have any questions or just want to chat!
+Using the `pg_search` gem is a great way to get your search up and running quickly, but don’t be afraid to dive deeper into what PostgreSQL search can do for you. I recommend checking out [Rach Belaid’s post](http://rachbelaid.com/postgres-full-text-search-is-good-enough/) for a more in-depth analysis of these features and how they work; the article really helped me to understand what was going on with our search and how to improve it.
+
+If you want to see what changes were necessary to accomplish this, feel free to head on over to [my fork](https://github.com/roelbondoc/pg_search) of the `pg_search` gem. It’s still a work in progress and will need some test coverage. If there are others out there with an interest in such a feature, I could open a PR to merge it back upstream to the main repo. Hit me up on GitHub or on Twitter if you have any questions or just want to chat!
