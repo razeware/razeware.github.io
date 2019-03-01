@@ -3,7 +3,7 @@ layout: post
 logo: "--white"
 header_style: "c-header--black"
 title: "Extending sort capabilities of pg_search"
-date: "Feb 13, 2019"
+date: "Mar 1, 2019"
 author: "Roel Bondoc"
 author_role: "Fullstack Developer Razeware"
 author_bio: "Interests: Ruby on Rails, games, and basketball."
@@ -15,7 +15,7 @@ category: "development"
 excerpt: "Adjusting the sort capabilities pg_search to provide better search results."
 ---
 
-PostgreSQL comes out of the box with fantastic full text-search capabilities. With a very robust feature set, it’s a popular option to implement search without having to use an external appliance like Elasticsearch or Solar.
+PostgreSQL comes out of the box with fantastic full text-search capabilities. With a very robust feature set, it’s a popular option to implement search without having to use an external appliance like Elasticsearch or Solr.
 
 PostgreSQL is also the database behind [raywenderlich.com](https://www.raywenderlich.com/). Naturally, it made sense to explore its features to build our very own [search page](https://www.raywenderlich.com/library). Fortunately, there is a nice gem called [pg_search](https://github.com/Casecommons/pg_search) that leverages the search features in PostgreSQL and easily integrate them into a Rails app. It’s fairly simple to implement: Once you’ve added it to your `Gemfile`, you can add full text search by including the module and calling the appropriate methods.
 
